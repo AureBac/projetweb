@@ -9,3 +9,9 @@ def projects(request):
     projects=Project.objects.filter(members__username=request.user.username)
     #return render(request, 'projects.html', args)
     return render(request, 'projects.html', {'projects':projects})
+
+
+@login_required()
+def project(request, id):
+    project=Project.objects.get(id=id)
+    return render(request, 'project.html',{'project':project})
