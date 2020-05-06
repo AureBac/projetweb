@@ -24,22 +24,45 @@
     <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="#">Projets</a></li>
-      <li class="breadcrumb-item"><a href="#">{{ project.name }}</a></li>
+      {% for project in projectlist %}
+
+      <li class="breadcrumb-item"><a href="#">{{project.name}}</a></li>
+
+      {% endfor %}
+
   </ol>
     </nav>
 
 
 
-   <!--
 
-    <div class="list-group">
-        {<% for project in projects %}
-          <a href="/project/{<{project.id }}" class="list-group-item list-group-item-action list-group-item-light">{<{project.name}}</a>
-        {<% endfor %}
 
-    </div>
 
-   -->
+
+    <table class="table">
+  <thead class="thead-dark">
+    <tr>
+        <th scope="col">Assignee</th>
+        <th scope="col">Task</th>
+        <th scope="col">Start date</th>
+        <th scope="col">Due date</th>
+    </tr>
+  </thead>
+      <tbody>
+        {% for task in tasks %}
+
+          <tr>
+               <th scope="row">{{ task.assignee }}</th>
+               <td><a href="/task/{{ task.id }}">{{task.name}}</a></td>
+               <td>{{ task.start_date|date:'d m Y'}}</td>
+               <td>{{ task.due_date|date:'d m Y' }}</td>
+          </tr>
+
+        {% endfor %}
+      </tbody>
+</table>
+
+
 
 
 
