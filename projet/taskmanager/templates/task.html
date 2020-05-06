@@ -40,7 +40,40 @@
 
 
 
+    {% for task in tasklist %}
 
+    <table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">Description</th>
+        <th scope="col">{{ task.description }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Assignee</th>
+      <td>{{ task.assignee.first_name }} {{ task.assignee.last_name }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Start date</th>
+      <td>{{ task.start_date|date:'d m Y'}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Due date</th>
+      <td>{{ task.due_date|date:'d m Y' }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Priority</th>
+      <td>{{ task.priority}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Status</th>
+      <td>{{ task.status.name}}</td>
+    </tr>
+  </tbody>
+</table>
+
+{% endfor %}
 
 
 

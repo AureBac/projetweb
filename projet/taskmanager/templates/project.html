@@ -52,7 +52,7 @@
         {% for task in tasks %}
 
           <tr>
-               <th scope="row">{{ task.assignee }}</th>
+               <th scope="row">{{ task.assignee.first_name }} {{ task.assignee.last_name }}</th>
                <td><a href="/task/{{ task.id }}/{{ task.project.id }}">{{task.name}}</a></td>
                <td>{{ task.start_date|date:'d m Y'}}</td>
                <td>{{ task.due_date|date:'d m Y' }}</td>
