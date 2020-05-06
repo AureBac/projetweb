@@ -29,6 +29,11 @@
       <li class="breadcrumb-item"><a href="#">{{project.name}}</a></li>
 
       {% endfor %}
+      {% for task in tasklist %}
+
+      <li class="breadcrumb-item"><a href="#">{{task.name}}</a></li>
+
+      {% endfor %}
 
   </ol>
     </nav>
@@ -39,28 +44,22 @@
 
 
 
-    <table class="table">
-  <thead class="thead-dark">
-    <tr>
-        <th scope="col">Assignee</th>
-        <th scope="col">Task</th>
-        <th scope="col">Start date</th>
-        <th scope="col">Due date</th>
-    </tr>
-  </thead>
-      <tbody>
-        {% for task in tasks %}
 
-          <tr>
-               <th scope="row">{{ task.assignee }}</th>
-               <td><a href="/task/{{ task.id }}/{{ task.project.id }}">{{task.name}}</a></td>
-               <td>{{ task.start_date|date:'d m Y'}}</td>
-               <td>{{ task.due_date|date:'d m Y' }}</td>
-          </tr>
 
-        {% endfor %}
-      </tbody>
-</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
